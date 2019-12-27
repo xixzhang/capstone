@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:500,700');
+
+/* Project 5: Step Two: styles.css */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* 
+	Background 
+*/
+html { 
+  background: url(../images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*
+	Typography
+*/
+
+h1, h2, h3, h4, h5, h6, p, td, li, figcaption, address {
+	font-family: 'Dosis', sans-serif;
+}
+
+a:link, a:visited {
+	color: #8FBC8B;
+}
+
+a:active, a:hover {
+	color: #F0E68C;
+}
+
+/* 
+	Navigation 
+*/
+
+/* @To-Do: Make menu stick to the top */
+nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+ul.topnav button {
+	color: #4A3C31;
+	background-color: #FFFFF0;
+	float: inherit;
+	margin: 10px 10px 10px;
+	box-sizing: border-box;
+	border: 1px solid #FFFFFF;
+	border-radius: 3px;
+}
+
+ul.topnav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #4A3C31;
+	display: flex;
+	justify-content: center;
+}
+
+ul.topnav li {
+	float: left;
+	height: 48px;
+	margin: 0;
+}
+
+ul.topnav li a {
+	color: #FFFFF0;
+	font-size: 17px;
+	text-align: center;
+	text-decoration: none;
+	padding: 14px 40px;
+	display: inline-block;
+	transition: 0.3s;
+}
+
+ul.topnav li a.active {
+	background-color: #CD5C5C;
+}
+
+ul.topnav li a:hover {
+	background-color: #D2B48C;
+	transition: all 0.5s ease;
+}
+
+ul.topnav li a.active:hover {
+	background-color: #8FBC8B;
+	transition: all 0.5s ease;
+}
+
+
+ul.topnav li.icon {
+	display: none;
+}
+
+@media screen and (max-width:680px) {
+	nav ul.topnav {
+		display: block;
+	}
+
+	nav ul.topnav li:not(:first-child) {
+		display: none;
+	}
+	nav ul.topnav li.icon {
+		float: right;
+		display: inline-block;
+	}
+	nav ul.topnav li.icon a {
+		height: 48px;
+	}
+
+	nav ul.topnav.responsive { position: relative; }
+	nav ul.topnav.responsive li.icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	nav ul.topnav.responsive li {
+		float: none;
+		display: inline;
+	}
+	nav ul.topnav.responsive li a {
+		display: block;
+		text-align: left;
+	}
+	
+}
+
+
+/*
+	Header
+*/
+
+header {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 960px;
+	margin: 6.0em auto 0;
+}
+
+.logo {
+	width: 462px;
+	height: 181px;
+}
+
+#login input {
+	width: 160px;
+	margin: 10px 10px 0;
+	color: #4A3C31;
+	border-radius: 3px;
+}
+
+/* Adjust logo to fit when the screen is less than logo is wide */
+@media screen and (max-width:463px) {
+	.logo { width: 100%; }
+}
+
+
+/*
+	Main
+*/
+
+main {
+	background: #ffffff url('../images/sprinkles.png');
+	max-width: 1152px;
+	margin: 2.0em auto 4.0em;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    /* Retina-specific stuff here */
+    main {
+    	background: #ffffff url('../images/sprinkles_@2X.png');
+	}
+}
+
+article {
+	max-width: 50%;
+	flex-grow: 1;
+	flex-basis: 50%;
+	padding: 3%;
+	color: #CD5C5C;
+}
+
+aside {
+	max-width: 50%;
+	flex-grow: 1;
+	flex-basis: 50%;
+	padding: 3%;
+	color: #F0E68C;
+	background: #ffffff url('../images/green_cup.png');
+}
+
+article h1, aside h1 {
+	margin: 1em 0 0;
+}
+
+main h2, main h3, main p {
+	margin: 0;
+	padding: 0;
+}
+
+main h2, main h3 {
+	font-size: 120%;
+}
+
+article h2 {
+	text-transform: uppercase;
+	font-weight: normal;
+	color: #FFFFF0;
+	background: #CD5C5C;
+	text-align: center;
+	margin: 1.0em 0 0.5em 0;
+}
+
+aside h2 {
+	text-transform: uppercase;
+	font-weight: normal;
+	color: #808000;
+	background: #F0E68C;
+	text-align: center;
+	margin: 1.0em 0 0.5em 0;
+}
+
+article h3, aside h3 {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 0.75em 0 0 0;
+}
+
+/*aside p:nth-of-type(2n) {
+	color: #708090;
+}
+
+article p:nth-of-type(2n) {
+	color: #FFFFF0;
+}
+
+article p:nth-of-type(2n+1), aside p:nth-of-type(2n+1) {
+	font-weight: bold;
+}*/
+
+article p {
+	color: #708090;
+}
+
+aside p {
+	color: #FFFFF0;
+}
+
+article input {
+	color: #CD5C5C;
+	width: 85%;
+	margin: 0.5em 1.0em 0.5em;
+	padding: 3px 5px;
+	box-sizing: border-box;
+	border: 1px solid #CD5C5C;
+	border-radius: 4px;
+}
+
+article form button {
+	color: #CD5C5C;
+	background-color: #ffffff;
+	float: right;
+	margin: 0.5em 2.0em 1em;
+	box-sizing: border-box;
+	border: 1px solid #CD5C5C;
+	border-radius: 4px;
+}
+
+aside input {
+	color: #808000;
+	width: 60%;
+	margin: 1.0em 1.0em 0.5em;
+	padding: 3px 5px;
+	box-sizing: border-box;
+	border: 1px solid #F0E68C;
+	border-radius: 4px;
+}
+
+aside form button {
+	color: #808000;
+	background-color: #ffffff;
+	float: right;
+	margin: 0.5em 3.0em 1em;
+	box-sizing: border-box;
+	border: 1px solid #808000;
+	border-radius: 4px;
+}
+
+button {
+	opacity: 1;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+
+/*
+	About
+*/
+
+#edit {
+	margin-bottom: 4.0em;
+}
+
+textarea {
+	resize: none;
+	color: #CD5C5C;
+	width: 85%;
+	height: 350px;
+	margin: 0.5em 1.0em 0.5em;
+	padding: 3px 5px;
+	box-sizing: border-box;
+	border: 1px solid #CD5C5C;
+	border-radius: 4px;
+}
+
+
+
+
+/*
+
+	Contact
+*/
+
+#contact table {
+	margin: 0.5em 0 0.5em;
+	width: 100%;
+}
+
+#contact tr {
+	border-top: 1px dashed #555;
+	border-bottom: 1px dashed #555;
+}
+
+#contact th, #contact td {
+	vertical-align: top;
+	padding: 0.3em 0.3em 0.3em;
+	font-size: 15px;
+	border-left: 1px dashed #555;
+	border-right: 1px dashed #555;
+}
+
+#contact input {
+	text-align: left;
+}
+
+@media screen and (max-width:676px) {
+	#contact button { margin-left: 2.5em; }
+}
+
+
+
+/*
+	Footer
+*/
+
+footer {
+	background-color: #4A3C31;
+	padding: 0 0 4.0em 0;
+}
+
+#info {
+	max-width: 680px;
+	margin: 6.0em auto 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+section {
+	flex: 0 1 auto;
+}
+
+footer h1, footer address, footer p {
+	color: #FFFFF0;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1.2em;
+}
+
+footer i {
+	margin: 0 30px 0 0;
+}
+
+@media screen and (max-width:680px) {
+	footer {
+		background-color: #4A3C31;
+		padding: 0 0 4.0em 0;
+	}
+
+	#info {
+		max-width: 680px;
+		margin: 6.0em auto 0;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	section {
+		flex: 1 1;
+	}
+
+	footer h1, footer address, footer p {
+		color: #FFFFF0;
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1.2em;
+	}
+
+	footer i {
+		margin: 0 5px 0 0;
+	}
+}
+
+
+
+
+
+
