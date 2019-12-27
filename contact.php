@@ -128,7 +128,7 @@
             echo '<div id="list">
             <h1>VIP Lists</h1>
             <form method="GET">
-            <input type="text" name="first" placeholder="Fullname" style="width: 40%;">
+            <input type="text" name="first" placeholder="Fullname" style="width: 40%;"> 
             <input type="date" name="bday" style="width: 35%;">
             <button type="submit" name="search" value="search">Search</button>
             <button type="submit" name="reset" value="reset">Reset</button>
