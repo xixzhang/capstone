@@ -59,16 +59,16 @@
             echo '<h1>Signup to be a VIP</h1>';
 
             if (isset($_GET['error'])) {
-                if ($_GET['error']='emptyfields') {
-                    echo '<p class="signuperror">Fill in all fields!</p>';
-                }
-                else if ($_GET['error']='invalidemail') {
+                if ($_GET['error']=='invalidemail') {
                     echo '<p class="signuperror">Invalid email!</p>';
                 }
-                else if ($_GET['error']='invalidbday') {
+                elseif ($_GET['error']=='emptyfields') {
+                    echo '<p class="signuperror">Fill in all fields!</p>';
+                }
+                elseif ($_GET['error']=='invalidbday') {
                     echo '<p class="signuperror">Invalid birthday!</p>';
                 }
-                else if ($_GET['error']='usertaken') {
+                elseif ($_GET['error']=='usertaken') {
                     echo '<p class="signuperror">This email is already existed!</p>';
                 }
             }
