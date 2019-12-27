@@ -128,78 +128,33 @@
             echo '<div id="list">
             <h1>VIP Lists</h1>
             <form method="GET">
-            <input type="text" name="first" placeholder="firstname" style="width: 20%;">
-            <input type="text" name="last" placeholder="lastname" style="width: 20%;">
-            <input type="date" name="bday" style="width: 25%;">
+            <input type="text" name="first" placeholder="Fullname" style="width: 40%;">
+            <input type="date" name="bday" style="width: 35%;">
             <button type="submit" name="search" value="search">Search</button>
             <button type="submit" name="reset" value="reset">Reset</button>
             </form>
             </div>';
 
-            if (isset($_GET['reset']) or !isset($_GET['search'])) {
+            if (isset($_GET['reset']) || !isset($_GET['search'])) {
                 $sql = "select * from vips order by vip_first;";
-                $result = mysqli_query($conn, $sql);
-                $resultCheck = mysqli_num_rows($result);
 
-                if ($resultCheck > 0) {
-                    echo "<table>";
-                    echo "<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Birthday</th></tr>";
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        //$datas[]=$row;
-                        echo "<tr><td>" . $row['vip_first'] . "</td><td>" . $row['vip_last'] . "</td><td>" . $row['email'] . "</td><td>" . $row['bday'] . "</td></tr>";
-                    }
+            } else {
+                $first=$_GET['first'];
+                $bday=$_GET['bday'];
+                $sql = "select * from vips where concat(vip_first, ' ', vip_last) like '%".$first."%' and bday like '%".$bday."%' order by vip_first;";
+            }
+
+            $result = mysqli_query($conn, $sql);
+            $resultCheck = mysqli_num_rows($result);
+            if ($resultCheck > 0) {
+                echo "<table>";
+                echo "<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Birthday</th></tr>";
+                while ($row = mysqli_fetch_assoc($result)) {
+                    //$datas[]=$row;
+                    echo "<tr><td>" . $row['vip_first'] . "</td><td>" . $row['vip_last'] . "</td><td>" . $row['email'] . "</td><td>" . $row['bday'] . "</td></tr>";
                 }
                 echo "</table>";
-            }
-            elseif (isset($_GET['first'])) {
-                $sql = "select * from vips where vip_first='" . $_GET['first'] . "' order by vip_first;";
-                $result = mysqli_query($conn, $sql);
-                $resultCheck = mysqli_num_rows($result);
-
-                if ($resultCheck > 0) {
-                    echo "<table>";
-                    echo "<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Birthday</th></tr>";
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        //$datas[]=$row;
-                        echo "<tr><td>" . $row['vip_first'] . "</td><td>" . $row['vip_last'] . "</td><td>" . $row['email'] . "</td><td>" . $row['bday'] . "</td></tr>";
-                    }
-                    echo "</table>";
-                } else {
-                    echo "No matching records are found.";
                 }
-            } elseif (isset($_GET['last'])) {
-                $sql = "select * from vips where vip_last='" . $_GET['last'] . "' order by vip_first;";
-                $result = mysqli_query($conn, $sql);
-                $resultCheck = mysqli_num_rows($result);
-
-                if ($resultCheck > 0) {
-                    echo "<table>";
-                    echo "<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Birthday</th></tr>";
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        //$datas[]=$row;
-                        echo "<tr><td>" . $row['vip_first'] . "</td><td>" . $row['vip_last'] . "</td><td>" . $row['email'] . "</td><td>" . $row['bday'] . "</td></tr>";
-                    }
-                    echo "</table>";
-                } else {
-                    echo "No matching records are found.";
-                }
-            } elseif (isset($_GET['bday'])) {
-                $sql = "select * from vips where bday='" . $_GET['bday'] . "' order by vip_first;";
-                $result = mysqli_query($conn, $sql);
-                $resultCheck = mysqli_num_rows($result);
-
-                if ($resultCheck > 0) {
-                    echo "<table>";
-                    echo "<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Birthday</th></tr>";
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        //$datas[]=$row;
-                        echo "<tr><td>" . $row['vip_first'] . "</td><td>" . $row['vip_last'] . "</td><td>" . $row['email'] . "</td><td>" . $row['bday'] . "</td></tr>";
-                    }
-                    echo "</table>";
-                } else {
-                    echo "No matching records are found.";
-                }
-            }
         }
         ?>
         <br>
