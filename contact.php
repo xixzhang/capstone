@@ -78,13 +78,13 @@
 
             echo '<div id="signup">
             <form action="includes/signup.inc.php" method="POST">
-                <input type="text" name="first" placeholder="firstname">
+                <input type="text" name="first" placeholder="firstname" required>
                 <br>
-                <input type="text" name="last" placeholder="lastname">
+                <input type="text" name="last" placeholder="lastname" required>
                 <br>
-                <input type="text" name="email" placeholder="email">
+                <input type="email" name="email" placeholder="email" required>
                 <br>
-                <input type="date" name="bday">
+                <input type="date" name="bday" required>
                 <br>
                 <button type="submit" name="signup-submit">Sign up</button>
             </form>
@@ -116,10 +116,10 @@
 
         echo '<div id="email">
             <form method="POST">
-                <input type="text" name="fullname" placeholder="Full name">
-                <input type="text" name="address" placeholder="Your email address">
-                <input type="text" name="subject" placeholder="Subject">
-                <textarea name="message" value="message" placeholder="Message"></textarea>
+                <input type="text" name="fullname" placeholder="Full name" required>
+                <input type="email" name="address" placeholder="Your email address" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" value="message" placeholder="Message" required></textarea>
                 <button type="submit" name="send" value="send-sumit">Send</button>
             </form>
         </div>';

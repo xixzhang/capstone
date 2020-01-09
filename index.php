@@ -94,7 +94,7 @@
     <aside>
         <h1 style="text-align: left;">Latest Tweets</h1>
         <br>
-        <a class="twitter-timeline" data-width="400" href="https://twitter.com/ayungaga1?ref_src=twsrc%5Etfw" style="width: 20px;">Tweets by ayungaga1</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a class="twitter-timeline" data-width="400" href="https://twitter.com/ayungaga1?ref_src=twsrc%5Etfw" style="width: 20px;" data-tweet-limit="4">Tweets by ayungaga1</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <br>
 
     </aside>
